@@ -1,0 +1,15 @@
+reveal -
+hop 
+reveal -
+exit
+hop ..
+hop -
+reveal -a
+make
+vim &
+vim &
+iMan
+iMan 
+iMan sleep
+iMan sleep
+exit

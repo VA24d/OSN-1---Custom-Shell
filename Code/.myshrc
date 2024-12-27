@@ -1,0 +1,19 @@
+
+
+// You can create aliases with a predefined keyword, say, 'alias' as well (Whatever suits you! Note: You aren't expected to handle both ways; either way is fine.)
+alias reveala = reveal -a
+alias home = hop ~
+
+
+// You can create functions with a predefined keyword, say, 'func' as well (Whatever suits you! Note: You aren't expected to handle both ways; either way is fine.)
+func mk_hop()
+{
+	mkdir "$1" // # Create the directory
+	hop "$1" // # Change into the directory
+}
+
+func hop_seek()
+{
+    hop "$1" // # Hop into this directory
+    seek "$1" // # search for files/directories with the same name as the directory you just hopped into.
+}

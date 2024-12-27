@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en-US" class=" dunhbjer idc0_350"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><link rel="stylesheet" href="Mini%20Project%201%20_%20Operating%20Systems%20and%20Networks_files/just-the-docs-default.css"> <script src="Mini%20Project%201%20_%20Operating%20Systems%20and%20Networks_files/lunr.min.js"></script> <script src="Mini%20Project%201%20_%20Operating%20Systems%20and%20Networks_files/just-the-docs.js"></script> <script type="text/javascript" async="" src="Mini%20Project%201%20_%20Operating%20Systems%20and%20Networks_files/latest.js"> </script><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="https://karthikv1392.github.io/cs3301_osn/assets/images/favicon.png" type="image/png"><title>Mini Project 1 | Operating Systems and Networks</title><meta name="generator" content="Jekyll v3.10.0"><meta property="og:title" content="Mini Project 1"><meta name="author" content="Karthik Vaidhyanathann"><meta property="og:locale" content="en_US"><meta name="description" content="This is the website of the course offered by IIIT Hyderabad"><meta property="og:description" content="This is the website of the course offered by IIIT Hyderabad"><link rel="canonical" href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1"><meta property="og:url" content="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1"><meta property="og:site_name" content="Operating Systems and Networks"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><meta property="twitter:title" content="Mini Project 1"> <script type="application/ld+json"> {"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Karthik Vaidhyanathann"},"description":"This is the website of the course offered by IIIT Hyderabad","headline":"Mini Project 1","url":"https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1"}</script><script type="text/javascript" async="" src="Mini%20Project%201%20_%20Operating%20Systems%20and%20Networks_files/MathJax.js"></script><style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 5px 0px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; -khtml-border-radius: 5px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 1px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: .7em}
+.MathJax_MenuRadioCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuLabel {padding: 1px 2em 3px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #DDDDDD; margin: 4px 3px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: #606872; color: white}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1px; bottom: 2px; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover, .MJXp-munder {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > *, .MJXp-munder > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head><body class="vsc-initialized"><div id="MathJax_Message" style="display: none;"></div> <a class="skip-to-main" href="#main-content">Skip to main content</a> <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"> <symbol id="svg-link" viewBox="0 0 24 24"><title>Link</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path> </svg> </symbol> <symbol id="svg-search" viewBox="0 0 24 24"><title>Search</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"> <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line> </svg> </symbol> <symbol id="svg-menu" viewBox="0 0 24 24"><title>Menu</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line> </svg> </symbol> <symbol id="svg-arrow-right" viewBox="0 0 24 24"><title>Expand</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline> </svg> </symbol> <symbol id="svg-doc" viewBox="0 0 24 24"><title>Document</title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline> </svg> </symbol> <symbol id="svg-external-link" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-external-link"><title id="svg-external-link-title">(external link)</title><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line> </symbol> </svg><div class="side-bar"><div class="site-header"> <a href="https://karthikv1392.github.io/cs3301_osn/" class="site-title lh-tight"> Operating Systems and Networks </a> <a href="#" id="menu-button" class="site-button"> <svg viewBox="0 0 24 24" class="icon"><use xlink:href="#svg-menu"></use></svg> </a></div><nav aria-label="Main" id="site-nav" class="site-nav"><ul class="nav-list"><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/home/" class="nav-list-link">Home</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in Lectures category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/lectures/" class="nav-list-link">Lectures</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-1" class="nav-list-link">Week 1 - Introduction to Course Overview and Process Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-2" class="nav-list-link">Week 2 - Proess Virutalization and Introduction to Process Scheduling</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-3" class="nav-list-link">Week 3 - Proess Virutalization and Introduction to Computer Networks</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-4" class="nav-list-link">Week 4 - Networking - Sockets and Transport Layer and Memory Virtualization</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-5" class="nav-list-link">Week 5 - Memory Virtualization - Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-6" class="nav-list-link">Week 6 - Paging - Mechanisms and Policies</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-7" class="nav-list-link">Week 7 - Application Layer and Introduction to Concurrency</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-8" class="nav-list-link">Week 8 - Concurrency - Locks and Condition Variables</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-9" class="nav-list-link">Week 9 - Sempahores and Beyond</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-10" class="nav-list-link">Week 10 - Link and Network Layers</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-11" class="nav-list-link">Week 11 - Persistence</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-12" class="nav-list-link">Week 12 - File Systems</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/lectures/week-13" class="nav-list-link">Week 13 - Revision</a></li></ul></li><li class="nav-list-item active"><a href="#" class="nav-list-expander" aria-label="toggle links in Mini Projects category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/" class="nav-list-link">Mini Projects</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp0" class="nav-list-link">Mini Project 0</a></li><li class="nav-list-item active"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp1" class="nav-list-link active">Mini Project 1</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp2" class="nav-list-link">Mini Project 2</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/mp3" class="nav-list-link">Mini Project 3</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/project/" class="nav-list-link">Course Project</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in Tutorials category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/" class="nav-list-link">Tutorials</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-1" class="nav-list-link">Tutorial 1 - Introduction to System Calls</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-2" class="nav-list-link">Tutorial 2 - Working towards your shell</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-3" class="nav-list-link">Tutorial 3 - Networks (Wireshark)</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-4" class="nav-list-link">Tutorial 4 - Networks (SSH)</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-5" class="nav-list-link">Tutorial 5 - XV6 and Sockets</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-6" class="nav-list-link">Tutorial 6 - Course Project</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/tutorial/tutorial-8" class="nav-list-link">Tutorial 8 - Mini Project 3</a></li></ul></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in PYQ category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/pyq/" class="nav-list-link">PYQ</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/pyq/quiz-1" class="nav-list-link">Quiz 1 - Monsoon 2023</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/pyq/midsem" class="nav-list-link">Mid Semester Examination - Monsoon 2023</a></li><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/pyq/endsem" class="nav-list-link">End Semester Examination - Monsoon 2023</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/course_policy/" class="nav-list-link">Course Policy</a></li><li class="nav-list-item"><a href="#" class="nav-list-expander" aria-label="toggle links in Answer Key category"> <svg viewBox="0 0 24 24"><use xlink:href="#svg-arrow-right"></use></svg> </a><a href="https://karthikv1392.github.io/cs3301_osn/answer-key/" class="nav-list-link">Answer Key</a><ul class="nav-list "><li class="nav-list-item "><a href="https://karthikv1392.github.io/cs3301_osn/answer-key/quiz-1" class="nav-list-link">Quiz 1 Answer Key</a></li></ul></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/calendar/" class="nav-list-link">Calendar</a></li><li class="nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/staff/" class="nav-list-link">Staff</a></li></ul></nav><footer class="site-footer"> This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.</footer></div><div class="main" id="top"><div id="main-header" class="main-header"><div class="search"><div class="search-input-wrap"> <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search Operating Systems and Networks" aria-label="Search Operating Systems and Networks" autocomplete="off"> <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label></div><div id="search-results" class="search-results"></div></div><nav aria-label="Auxiliary" class="aux-nav"><ul class="aux-nav-list"><li class="aux-nav-list-item"> <a href="https://karthikvaidhyanathan.com/" class="site-button"> Karthik Vaidhyanathann </a></li><li class="aux-nav-list-item"> <a href="https://courses.iiit.ac.in/" class="site-button"> Moodle </a></li></ul></nav></div><div id="main-content-wrap" class="main-content-wrap"><nav aria-label="Breadcrumb" class="breadcrumb-nav"><ol class="breadcrumb-nav-list"><li class="breadcrumb-nav-list-item"><a href="https://karthikv1392.github.io/cs3301_osn/mini-projects/">Mini Projects</a></li><li class="breadcrumb-nav-list-item"><span>Mini Project 1</span></li></ol></nav><div id="main-content" class="main-content" role="main"><h1 id="mini-project-1--building-your-own-shell"> <a href="#mini-project-1--building-your-own-shell" class="anchor-heading" aria-labelledby="mini-project-1--building-your-own-shell"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Mini Project 1 : Building your own shell</h1><p>Before starting, make sure to read this document <strong>completely</strong> including <strong>Instructions, Guidelines, Plagiarism Policy and Submission Guidelines</strong>
+ before asking any doubts as they might already be covered here. 
+Additionally, you are recommended to read these to avoid unnecessary 
+penalties.</p><p><strong>Part B of the Mini Project has been released on 17th August, 2024. The Github classroom link for Mini Project 1 is available <a href="https://classroom.github.com/a/Qiz9msrr">here</a>.
+ Please note that there are 2 seperate branches available in the 
+repository and you are expected to use the mid branch for Mid submission
+ and the final branch for the final submission of the Mini Project.</strong></p><p><strong>Doubts Document Links for Mini Project 1:</strong></p><ul><li><a href="https://hackmd.io/@osn-monsoon-2024/HJsVBWSq0">Questions</a></li><li><a href="https://hackmd.io/@osn-monsoon-2024/rkbISZH5C">Answers</a></li></ul><h2 id="instructions"> <a href="#instructions" class="anchor-heading" aria-labelledby="instructions"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Instructions</h2><p>In this Mini Project, you will be building your own shell using C. As the scale of code will be very large, it is <strong>necessary to write modular code. Do NOT write monolithic code.</strong>
+ Following is the definition of what modular code should look like : 
+your codebase must be separated in different C files based on the tasks 
+that it is intended to perform. Create header files to include headers 
+from C library. You will be penalized heavily if your code is non 
+modular.</p><p>It is highly recommended to start this mini project early
+ to complete it in time as it will be quite intensive. There are 2 parts
+ to this assignment, with each of them having their own deadlines before
+ the single hard deadline. You are required to submit your code 2 times 
+in the duration of this assignment with the last deadline being a hard 
+deadline.</p><ul><li>1st deadline : Only part A is required to be submitted</li></ul><p>50% points of Part A will be given based on this submission.</p><ul><li>2nd deadline : Both Parts A and B must be submitted.</li></ul><p>50% points of Part A and 100% points of Part B will be given based on this submission.</p><p>For
+ easier understanding, let’s say Part A is worth 100 points total. If 
+your submission is worth 20 points from Part A during 1st deadline, and 
+you submit it completely during 2nd deadline (100 points), you will get a
+ total of (20/2) + (100/2) = 60 points. If you submit Part A completely 
+in both deadlines, you will get full marks. For Part B, whatever you 
+submit during 2nd deadline will be used to award you points.</p><p><strong>Thus, in case of missing 1st deadline, 50% points of Part A will be lost even if that part is submitted at a later deadline.</strong></p><h2 id="deadlines"> <a href="#deadlines" class="anchor-heading" aria-labelledby="deadlines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Deadlines</h2><p><strong>1st deadline : 11:59 PM - 30 Aug, 2024</strong> : Mid branch</p><p><strong>2nd deadline : 11:59 PM - 13 Sep, 2024</strong> : Final branch</p><p><strong>Making a commit to the Mid Branch after 1st deadline will use up late days</strong></p><h2 id="part--a----basic--system--calls"> <a href="#part--a----basic--system--calls" class="anchor-heading" aria-labelledby="part--a----basic--system--calls"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part A : Basic System Calls</h2><h3 id="specification--1----display--requirement--5"> <a href="#specification--1----display--requirement--5" class="anchor-heading" aria-labelledby="specification--1----display--requirement--5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 1 : Display Requirement [5]</h3><p>On
+ every line when waiting for user input, a shell prompt of the following
+ form must appear along with it. Do NOT hard code the username/system 
+name here. The current directory address should be shown in the prompt 
+as well.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">Username</span><span class="err">@</span><span class="na">SystemName</span><span class="err">:~</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p>For example, if system name is “SYS”, 
+username is “JohnDoe”, and the user is currently in the home directory, 
+then prompt looks like this :</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p>The directory from which shell is invoked 
+becomes the home directory for the shell and represented with “~”. All 
+paths inside this directory should be shown relative to it. Absolute 
+path of a directory/file must be shown when outside the home directory.</p><p>When
+ user changes the working directory, the corresponding change in path of
+ directory must be reflected in the next prompt. For example, on going 
+to the parent directory of the home directory of shell, following form 
+of prompt is expected :</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:/</span><span class="na">home</span><span class="err">/</span><span class="na">johndoe</span><span class="err">/</span><span class="na">sem3</span><span class="p">&gt;</span>
+
+</code></pre></div></div><h3 id="specification--2----input--requirements--5"> <a href="#specification--2----input--requirements--5" class="anchor-heading" aria-labelledby="specification--2----input--requirements--5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 2 : Input Requirements [5]</h3><p>Keep in mind the following requirements for input when implementing your shell :</p><ul><li><p>Your shell should support a ‘;’ or ‘&amp;’ separated list of commands. You can use ‘<strong>strtok</strong>’ to tokenize the input.</p></li><li><p>Your shell should account for random spaces and tabs when taking input.</p></li><li><p>The “;” command can be used to give multiple commands at the same time. This works similar to how “;” works in Bash.</p></li><li><p>‘&amp;’ operator runs the command preceding it in the background after printing the process id of the newly created process. <strong>(Refer to Specification 4 for more details on this)</strong></p></li></ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">.</span><span class="o">/</span><span class="nx">a</span><span class="p">.</span><span class="nx">out</span>
+
+<span class="o">&lt;</span><span class="nx">JohnDoe</span><span class="p">@</span><span class="nd">SYS</span><span class="p">:</span><span class="o">~&gt;</span> <span class="nx">vim</span> <span class="o">&amp;</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="mi">35006</span>
+
+<span class="o">&lt;</span><span class="nx">JohnDoe</span><span class="p">@</span><span class="nd">SYS</span><span class="p">:</span><span class="o">~&gt;</span> <span class="nx">sleep</span> <span class="mi">5</span> <span class="o">&amp;</span> <span class="nx">echo</span> <span class="dl">"</span><span class="s2">Lorem ipsum</span><span class="dl">"</span>
+
+<span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="mi">35036</span>
+
+<span class="nx">Lorem</span> <span class="nx">ipsum</span>
+
+<span class="err">#</span> <span class="nx">sleep</span> <span class="nx">runs</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">background</span> <span class="k">while</span> <span class="nx">echo</span> <span class="nx">runs</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">foreground</span>
+
+<span class="o">&lt;</span><span class="nx">JohnDoe</span><span class="p">@</span><span class="nd">SYS</span><span class="p">:</span><span class="o">~&gt;</span> <span class="nx">hop</span> <span class="nx">test</span> <span class="p">;</span> <span class="nx">pwd</span>
+
+<span class="nx">sleep</span> <span class="kd">with</span> <span class="nx">pid</span> <span class="mi">35036</span> <span class="nx">exited</span> <span class="nx">normally</span> <span class="err">#</span> <span class="nx">after</span> <span class="mi">5</span> <span class="nx">seconds</span>
+
+<span class="o">~</span><span class="sr">/tes</span><span class="err">t
+</span>
+<span class="o">&lt;</span><span class="nx">JohnDoe</span><span class="p">@</span><span class="nd">SYS</span><span class="p">:</span><span class="o">~</span><span class="sr">/test</span><span class="err">&gt;
+</span>
+</code></pre></div></div><p>If any command is erroneous, then error should be printed.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleeeep 6
+
+ERROR : 'sleeeep' is not a valid command
+
+</code></pre></div></div><h3 id="specification--3---hop-5"> <a href="#specification--3---hop-5" class="anchor-heading" aria-labelledby="specification--3---hop-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 3 : hop [5]</h3><p>‘hop’
+ command changes the directory that the shell is currently in. It should
+ also print the full path of working directory after changing. The 
+directory path/name can be provided as argument to this command.</p><ul><li><p>You
+ are also expected to implement the “.”, “..”, “~”, and “-” flags in 
+hop. ~ represents the home directory of shell (refer to specification 
+1).</p></li><li><p>You should support both absolute and relative paths, along with paths from home directory.</p></li><li><p>If
+ more than one argument is present, execute hop sequentially with all of
+ them being the argument one by one (from left to right).</p></li><li><p>If no argument is present, then hop into the home directory.</p></li></ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> hop test
+
+/home/johndoe/test
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="p">&gt;</span> hop assignment
+
+/home/johndoe/test/assignment
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="err">/</span><span class="na">assignment</span><span class="p">&gt;</span> hop ~
+
+/home/johndoe
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> hop -
+
+/home/johndoe/test/assignment
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="err">/</span><span class="na">assignment</span><span class="p">&gt;</span> hop .. tutorial
+
+/home/johndoe/test
+
+/home/johndoe/test/tutorial
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="err">/</span><span class="na">tutorial</span><span class="p">&gt;</span> hop ~/project
+
+/home/johndoe/project
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">project</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p><strong>Note :</strong></p><ul><li><p>You can assume that the paths/names will not contain any whitespace characters.</p></li><li><p>DON’T use ‘execvp’ or similar commands for implementing this.</p></li></ul><h3 id="specification--4---reveal-8"> <a href="#specification--4---reveal-8" class="anchor-heading" aria-labelledby="specification--4---reveal-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 4 : reveal [8]</h3><p>‘reveal’
+ command lists all the files and directories in the specified 
+directories in lexicographic order (default reveal does not show hidden 
+files). You should support the -a and -l flags.</p><ul><li><p>-l : displays extra information</p></li><li><p>-a : displays all files, including hidden files</p></li></ul><p>Similar to hop, you are expected to support “.”, “..”, “~”, and “-” symbols.</p><ul><li><p>Support both relative and absolute paths.</p></li><li><p>If no argument is given, you should reveal at the current working directory.</p></li><li><p>Multiple arguments will not be given as input.</p></li></ul><p>The input will always be in the format :</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nx">reveal</span> <span class="o">&lt;</span><span class="nx">flags</span><span class="o">&gt;</span> <span class="p">&lt;</span><span class="nt">path</span><span class="err">/</span><span class="na">name</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p>Handle the following cases also in case of flags :</p><ul><li><p>reveal -a &lt;path/name&gt;</p></li><li><p>reveal -l &lt;path/name&gt;</p></li><li><p>reveal -a -l &lt;path/name&gt;</p></li><li><p>reveal -l -a &lt;path/name&gt;</p></li><li><p>reveal -la &lt;path/name&gt;</p></li><li><p>reveal -al &lt;path/name&gt;</p></li><li><p><strong>Handle the cases where there are multiple l &amp; a like:-</strong></p><ul><li>reveal -lala &lt;path/name&gt;</li></ul></li></ul><p><strong>Note :</strong></p><ul><li><p>You can assume that the paths/names will not contain any whitespace characters.</p></li><li><p>DON’T use ‘execvp’ or similar commands for implementing this.</p></li><li><p>Use
+ specific color coding to differentiate between file names, directories 
+and executables in the output [green for executables, white for files 
+and blue for directories].</p></li><li><p>Print a list of file/folders separated by newline characters.</p></li><li><p>The details printed with -l should be the same as the ls command present in Bash.</p></li></ul><h3 id="specification--5---log-commands-8"> <a href="#specification--5---log-commands-8" class="anchor-heading" aria-labelledby="specification--5---log-commands-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 5 : log commands [8]</h3><p><strong>log</strong></p><p>Implement
+ a ‘log’ command which is similar to the actual history command in bash.
+ The default number of commands it should store and output is 15 (max). 
+You must overwrite the oldest commands if more than the set number of 
+commands are entered. You should track the commands across all sessions 
+and not just one. The commands should be printed from oldest to recent 
+moving top to down (Refer example below).</p><p>Note :</p><ul><li><p>DO NOT store a command in log if it is the exactly same as the previously entered command.</p></li><li><p>Store the arguments along with the command</p></li><li><p>Commands separated by ; or &amp; are supposed to be stored in a single line.</p></li><li><p>Erroneous
+ commands can also be stored (this is not a strict requirement, and you 
+can choose to not store them). Please mention whatever you choose in 
+README accordingly.</p></li><li><p>Do NOT store the log command in log. 
+In cases where multiple commands separated by ; or &amp; contain a log 
+command, you are expected to not store the entire command string. For 
+eg. in case of <code class="language-plaintext highlighter-rouge">hop .. ; echo "OSN" ; log</code>, the log will not be updated at all since log is present in the command string.</p></li></ul><p><strong>log purge</strong></p><p>Clears all the log currently stored. Do not store this command in the log.</p><p><strong>log execute &lt;index&gt;</strong></p><p>Execute the command at <index>
+ position in log (ordered from most recent to oldest). **You are not 
+required to store the command corresponding to this index in the log**, 
+but you are free to do so if you want.</index></p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> reveal test
+
+# output
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5
+
+# output
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5
+
+# output
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="p">&gt;</span> echo "Lorem ipsum"
+
+# output
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log
+
+reveal test
+
+sleep 5
+
+echo "Lorem ipsum"
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log execute 1
+
+# output of echo "Lorem ipsum"
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log
+
+reveal test
+
+sleep 5
+
+echo "Lorem ipsum"
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log execute 3
+
+# output of reveal test
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log
+
+reveal test
+
+sleep 5
+
+echo "Lorem ipsum"
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log purge
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span>     //outputs nothing since log has been purged
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5 ; reveal
+
+# output
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log 
+
+sleep 5 ; reveal
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5 ; revealll
+
+# error mesage
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5 ; echo "Lorem Ipsum" ; log
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> log
+
+sleep 5 ; reveal 
+
+sleep 5 ; revealll   
+
+</code></pre></div></div><h3 id="specification--6----system-commands-12"> <a href="#specification--6----system-commands-12" class="anchor-heading" aria-labelledby="specification--6----system-commands-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 6 : System commands [12]</h3><p>Your
+ shell must be able to execute the other system commands present in Bash
+ as well like emacs, gedit etc. This should be possible in both 
+foreground and background processes.</p><p><strong>Foreground Process</strong></p><p>Executing
+ a command in foreground means the shell will wait for that process to 
+complete and regain control afterwards. Control of terminal is handed 
+over to this process for the time being while it is running.</p><p>Time 
+taken by the foreground process and the name of the process should be 
+printed in the next prompt if process takes &gt; 2 seconds to run. Round
+ the time down to integer before printing in prompt.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 5
+
+# sleeps for 5 seconds
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span> <span class="na">sleep</span> <span class="err">:</span> <span class="na">5s</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p><strong>Background Process</strong></p><p>Any
+ command invoked with “&amp;” is treated as a background command. This 
+implies that your shell will spawn that process but doesn’t hand the 
+control of terminal to it. Shell will keep taking other user commands. 
+Whenever a new background process is started, print the PID of the newly
+ created background process on your shell also.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 10 <span class="err">&amp;</span>
+
+13027
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> sleep 20 <span class="err">&amp;</span> # After 10 seconds
+
+Sleep exited normally (13027)
+
+13054
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> echo "Lorem Ipsum" # After 20 seconds
+
+Sleep exited normally (13054)
+
+Lorem Ipsum
+
+</code></pre></div></div><p><strong>Note :</strong></p><ul><li><p>No need to handle background processes for any commands implemented by yourself (hop, reveal, log etc.)</p></li><li><p>You should be able to run multiple background processes.</p></li><li><p>Whenever the background process finishes, display a message to the user <strong>autonomously, without any futher interaction required by the user.</strong></p></li><li><p>Print process name along with pid when background process ends. Also mention if the process ended normally or abnormally.</p></li></ul><h3 id="specification--7---proclore-5"> <a href="#specification--7---proclore-5" class="anchor-heading" aria-labelledby="specification--7---proclore-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 7 : proclore [5]</h3><p>proclore is used to obtain information regarding a process. If an argument is missing, print the information of your shell.</p><p>Information required to print :</p><ul><li><p>pid</p></li><li><p>Process Status (R/R+/S/S+/Z)</p></li><li><p>Process group</p></li><li><p>Virtual Memory</p></li><li><p>Executable path of process</p></li></ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> proclore
+
+pid : 210
+
+process status : R+
+
+Process Group : 210
+
+Virtual memory : 167142
+
+executable path : ~/a.out
+
+  
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> proclore 301
+
+pid : 301
+
+process Status : R
+
+Process Group : 243
+
+Virtual memory : 177013
+
+executable Path : /usr/bin/gcc
+
+</code></pre></div></div><p>Process states :</p><ul><li><p>R/R+ : Running</p></li><li><p>S/S+ : Sleeping in an interruptible wait</p></li><li><p>Z : Zombie</p></li></ul><p>The “+” signifies whether it is a foreground or background process.</p><h3 id="specification--8---seek-8"> <a href="#specification--8---seek-8" class="anchor-heading" aria-labelledby="specification--8---seek-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 8 : seek [8]</h3><p>‘seek’
+ command looks for a file/directory in the specified target directory 
+(or current if no directory is specified). It returns a list of relative
+ paths (from target directory) of all matching files/directories <strong>(files in green and directories in blue)</strong> separated with a newline character.</p><p>Note that by files, the text here refers to non-directory files.</p><p><strong>Flags :</strong></p><ul><li><p>-d : Only look for directories (ignore files even if name matches)</p></li><li><p>-f : Only look for files (ignore directories even if name matches)</p></li><li><p>-
+e : This flag is effective only when a single file or a single directory
+ with the name is found. If only one file (and no directories) is found,
+ then print it’s output. If only one directory (and no files) is found, 
+then change current working directory to it. Otherwise, the flag has no 
+effect. This flag should work with -d and -f flags.</p></li></ul><p>If 
+-e flag is enabled but the directory does not have access permission 
+(execute) or file does not have read permission, then output <strong>“Missing permissions for task!”</strong></p><p><strong>Argument 1 :</strong></p><p>The target that the user is looking for. A name <strong>without whitespace characters</strong>
+ will be given here. You have to look for a file/folder with the exact 
+name, or one which contains this target as a prefix in its name.</p><p><strong>Argument 2 (optional) :</strong></p><p>The
+ path to target directory where the search will be performed (this path 
+can have symbols like . and ~ as explained in the reveal command). If 
+this argument is missing, target directory is the current working 
+directory. The target directory’s tree must be searched (and not just 
+the directory).</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek newfolder
+
+./newfolder
+
+./doe/newfolder
+
+./doe/newfolder/newfolder.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek newfolder ./doe
+
+./newfolder # This is relative to ./doe
+
+./newfolder/newfolder.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek -d newfolder ./doe
+
+./newfolder
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek -f newfolder ./doe
+
+./newfolder/newfolder.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek newfolder ./john
+
+No match found!
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek -d -f newfolder ./doe
+
+Invalid flags!
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek -e -f newfolder ./doe
+
+./newfolder/newfolder.txt
+
+This is a new folder! # Content of newfolder.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> seek -e -d newfolder ./doe
+
+./newfolder/
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">doe</span><span class="err">/</span><span class="na">newfolder</span><span class="p">&gt;</span>
+
+</code></pre></div></div><p>Print “<strong>No match found!</strong>” in 
+case no matching files/directories is found. Note that -d and -f flag 
+can’t be used at the same time and must return error message “<strong>Invalid flags!</strong>”.</p><p>A call to this command will always be in the format :</p><p><strong>seek &lt;flags&gt; &lt;search&gt; &lt;target_directory&gt;</strong></p><h2 id="part--b----processes--files-and-misc"> <a href="#part--b----processes--files-and-misc" class="anchor-heading" aria-labelledby="part--b----processes--files-and-misc"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part B : Processes, Files and Misc.</h2><p>Note :
+ Please read specification 10-12 together before attempting as one’s 
+implementation will affect the other. The evaluation will be done 
+separately, this note is just for your convenience.</p><h3 id="specification--9----myshrc-2--2-bonus"> <a href="#specification--9----myshrc-2--2-bonus" class="anchor-heading" aria-labelledby="specification--9----myshrc-2--2-bonus"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 9 : .myshrc [2 + 2 [BONUS]]</h3><p>The <code class="language-plaintext highlighter-rouge">myshrc</code> file is a customized shell configuration file, similar to <code class="language-plaintext highlighter-rouge">.bashrc</code>,
+ tailored to enhance your command-line experience. It includes useful 
+aliases and functions to streamline your workflow and improve 
+efficiency. In this you need to create your own .bashrc file which will 
+use <strong>aliases</strong> and <strong>functions</strong>.</p><p>In this case, implementing <em>any</em> alias (not just the ones mentioned in the example below) will award you with <strong>2 points</strong>.
+ All you need to do is to map a single word alias to some command. You 
+are not expected to handle aliases mapping to any custom functions. You 
+do not need to worry about multi-word aliases.</p><p>Additionally, implementing the two functions mentioned in the example below (<em>mk_hop</em> and <em>hop_seek</em>) will award you with <strong>2 BONUS points</strong> (this is entirely <strong>optional</strong>).</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> nano .myshrc
+// File Contents are given below (feel free to make edits to it coz its yours :) 
+//# You can create aliases without the alias keyword
+reveall = reveal -l 
+
+//OR
+// You can create aliases with a predefined keyword, say, 'alias' as well (Whatever suits you! Note: You aren't expected to handle both ways; either way is fine.)
+alias reveala = reveal -a
+alias home = hop ~
+
+// Functions (BONUS)
+mk_hop() 
+<span class="si">{</span> 
+	<span class="nx">mkdir</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Create</span> <span class="nx">the</span> <span class="nx">directory</span> 
+	<span class="nx">hop</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Change</span> <span class="nx">into</span> <span class="nx">the</span> <span class="nx">directory</span> 
+<span class="si">}</span>
+
+hop_seek()
+<span class="si">{</span>
+    <span class="nx">hop</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Hop</span> <span class="nx">into</span> <span class="k">this</span> <span class="nx">directory</span>
+    <span class="nx">seek</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">search</span> <span class="k">for</span> <span class="nx">files</span><span class="o">/</span><span class="nx">directories</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">same</span> <span class="nx">name</span> <span class="k">as</span> <span class="nx">the</span> <span class="nx">directory</span> <span class="nx">you</span> <span class="nx">just</span> <span class="nx">hopped</span> <span class="nx">into</span><span class="p">.</span>
+<span class="si">}</span>
+
+// OR
+// You can create functions with a predefined keyword, say, 'func' as well (Whatever suits you! Note: You aren't expected to handle both ways; either way is fine.)
+func mk_hop()
+<span class="si">{</span>
+	<span class="nx">mkdir</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Create</span> <span class="nx">the</span> <span class="nx">directory</span>
+	<span class="nx">hop</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Change</span> <span class="nx">into</span> <span class="nx">the</span> <span class="nx">directory</span>
+<span class="si">}</span>
+
+func hop_seek()
+<span class="si">{</span>
+    <span class="nx">hop</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">Hop</span> <span class="nx">into</span> <span class="k">this</span> <span class="nx">directory</span>
+    <span class="nx">seek</span> <span class="dl">"</span><span class="s2">$1</span><span class="dl">"</span> <span class="err">#</span> <span class="nx">search</span> <span class="k">for</span> <span class="nx">files</span><span class="o">/</span><span class="nx">directories</span> <span class="kd">with</span> <span class="nx">the</span> <span class="nx">same</span> <span class="nx">name</span> <span class="k">as</span> <span class="nx">the</span> <span class="nx">directory</span> <span class="nx">you</span> <span class="nx">just</span> <span class="nx">hopped</span> <span class="nx">into</span><span class="p">.</span>
+<span class="si">}</span>
+
+
+// File Content Ends
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> reveall
+// Output is same as what reveal -l usually does
+
+// assuming test dir doesnt exist
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> mk_hop test 
+// makes test dir
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~/</span><span class="na">test</span><span class="p">&gt;</span> 
+
+</code></pre></div></div><h3 id="specification--10----io--redirection-10"> <a href="#specification--10----io--redirection-10" class="anchor-heading" aria-labelledby="specification--10----io--redirection-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 10 : I/O Redirection [10]</h3><p>I/
+O Redirection is when you change the default input/output (which is the 
+terminal) to another file. This file can be used to read input into a 
+program or to capture the output of a program.</p><p>Your shell should support &gt;, &lt;, &nbsp;» (&lt; should work with both &gt; and&nbsp;»).</p><ul><li><p>&gt; : Outputs to the filename following “&gt;”.</p></li><li><p>&gt;&gt; : Similar to “&gt;” but appends instead of overwriting if the file already exists.</p></li><li><p>&lt; : Reads input from the filename following “&lt;”.</p></li></ul><p>Your shell should handle these cases appropriately:</p><ul><li><p>An error message “No such input file found!” should be displayed if the input file does not exist.</p></li><li><p>The output file should be created (with permissions 0644) if it does not already exist in both &gt; and&nbsp;».</p></li><li><p>In case the output file already exists, it should be overwritten in case of &gt; and appended to in case of &nbsp;».</p></li></ul><p>You are NOT required to handle multiple inputs and outputs.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> echo "Hello world" &gt; newfile.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat newfile.txt
+
+Hello world
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> wc <span class="p">&lt;</span> <span class="na">a</span><span class="err">.</span><span class="na">txt</span>
+
+<span class="na">1</span> <span class="na">2</span> <span class="na">12</span> <span class="err">#</span> <span class="na">There</span> <span class="na">can</span> <span class="na">be</span> <span class="na">extra</span> <span class="na">spaces</span>
+
+<span class="err">&lt;</span><span class="na">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> echo "Lorem ipsum" &gt; newfile.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat newfile.txt
+
+Lorem ipsum
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> echo "dolor sit amet" &gt;&gt; newfile.txt; cat newfile.txt
+
+Lorem ipsum
+
+dolor sit amet
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> wc <span class="p">&lt;</span> <span class="na">newfile</span><span class="err">.</span><span class="na">txt</span> <span class="p">&gt;</span> a.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat a.txt
+
+2 5 27 # There can be extra spaces
+
+</code></pre></div></div><h3 id="specification--11----pipes-12"> <a href="#specification--11----pipes-12" class="anchor-heading" aria-labelledby="specification--11----pipes-12"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 11 : Pipes [12]</h3><p>Pipes
+ are used to pass information between commands. It takes the output from
+ command on left and passes it as standard input to the command on 
+right. Your shell should support any number of pipes.</p><p><strong>Note :</strong></p><ul><li><p>Return error “Invalid use of pipe”, if there is nothing to the left or to the right of a pipe (”|”).</p></li><li><p>Run all the commands sequentially from left to right if pipes are present.</p></li></ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> echo "Lorem Ipsum" | wc
+
+1 2 12 # extra spaces can be present
+
+</code></pre></div></div><h3 id="specification--12----redirection-along-with-pipes-8"> <a href="#specification--12----redirection-along-with-pipes-8" class="anchor-heading" aria-labelledby="specification--12----redirection-along-with-pipes-8"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 12 : Redirection along with pipes [8]</h3><p>This
+ specification requires you to be able to run I/O redirection along with
+ pipes. It should support any number of pipes (but not multiple inputs 
+and outputs from I/O redirection). In short, you are required to make 
+sure that Specification 10 and Specification 11 work when given as input
+ together.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat a.txt
+
+Lorem Ipsum
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat <span class="p">&lt;</span> <span class="na">a</span><span class="err">.</span><span class="na">txt</span> <span class="err">|</span> <span class="na">wc</span> <span class="err">|</span> <span class="na">cat</span> <span class="p">&gt;</span> b.txt
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> cat b.txt
+
+1 2 12  # note that extra spaces can be present
+
+</code></pre></div></div><h3 id="specification--13---activities-5"> <a href="#specification--13---activities-5" class="anchor-heading" aria-labelledby="specification--13---activities-5"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 13 : activities [5]</h3><p>This
+ specification requires you to print a list of all the processes 
+currently running that were spawned by your shell in lexicographic 
+order. This list should contain the following information about all 
+processes :</p><ul><li><p>Command Name</p></li><li><p>pid</p></li><li><p>state : running or stopped</p></li></ul><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+221 : emacs new.txt - Running
+
+430 : vim - Stopped
+
+620 : gedit - Stopped
+
+</code></pre></div></div><p>Format of an entry should be :</p><p><strong>[pid] : [command name] - [State]</strong></p><h3 id="specification--14----signals-7"> <a href="#specification--14----signals-7" class="anchor-heading" aria-labelledby="specification--14----signals-7"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 14 : Signals [7]</h3><p><strong>ping &lt;pid&gt; &lt;signal_number&gt;</strong></p><p>ping
+ command is used to send signals to processes. Take the pid of a process
+ and send a signal to it which corresponds to the signal number (which 
+is provided as an argument). Print error “No such process found”, if 
+process with given pid does not exist. You should take signal number’s 
+modulo with 32 before checking which signal it belongs to (assuming 
+x86/ARM machine). Check man page for signal for an exhaustive list of 
+all signals present.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+221 : emacs new.txt - Running
+
+430 : vim - Running
+
+620 : gedit - Stopped
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> ping 221 9 					# 9 is for SIGKILL
+
+Sent signal 9 to process with pid 221
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+430 : vim - Running
+
+620 : gedit - Stopped
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> ping 430 47
+
+Sent signal 15 to process with pid 430 		# 15 is for SIGTERM
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+430 : vim - Stopped
+
+620 : gedit - Stopped
+
+</code></pre></div></div><p>Following 3 commands are direct keyboard input where Ctrl is Control key on keyboard (or it’s equivalent).</p><p><strong>Ctrl - C</strong></p><p>Interrupt
+ any currently running foreground process by sending it the SIGINT 
+signal. It has no effect if no foreground process is currently running.</p><p><strong>Ctrl - D</strong></p><p>Log out of your shell (after killing all processes) while having no effect on the actual terminal.</p><p><strong>Ctrl - Z</strong></p><p>Push
+ the (if any) running foreground process to the background and change 
+it’s state from “Running” to “Stopped”. It has no effect on the shell if
+ no foreground process is running.</p><h3 id="specification--15---fg-and-bg-10"> <a href="#specification--15---fg-and-bg-10" class="anchor-heading" aria-labelledby="specification--15---fg-and-bg-10"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 15 : fg and bg [10]</h3><p><strong>fg &lt;pid&gt;</strong></p><p>Brings
+ the running or stopped background process with corresponding pid to 
+foreground, handing it the control of terminal. Print “No such process 
+found”, if no process with given pid exists.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+620 : gedit - Stopped
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> fg 620
+
+# brings gedit [620] to foreground and change it's state to Running
+
+</code></pre></div></div><p><strong>bg &lt;pid&gt;</strong></p><p>Changes
+ the state of a stopped background process to running (in the 
+background). If a process with given pid does not exist, print “No such 
+process found” to the terminal.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> activities
+
+620 : gedit - Stopped
+
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> bg 620
+
+# Changes [620] gedit's state to Running (in the background)
+
+</code></pre></div></div><h3 id="specification--16----neonate--7-bonus"> <a href="#specification--16----neonate--7-bonus" class="anchor-heading" aria-labelledby="specification--16----neonate--7-bonus"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 16 : Neonate [7] [BONUS]</h3><p>Command : <strong>neonate -n [time_arg]</strong></p><p>The
+ command prints the Process-ID of the most recently created process on 
+the system (you are not allowed to use system programs), this pid will 
+be printed every [time_arg] seconds until the key ‘x’ is pressed.</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="p">&lt;</span><span class="nc">JohnDoe</span><span class="err">@</span><span class="na">SYS</span><span class="err">:~</span><span class="p">&gt;</span> neonate -n 4
+
+# A line containing the pid should be printed
+
+# every 4 seconds until the user
+
+# presses the key: 'x'.
+
+11810
+
+11811
+
+11811
+
+11812
+
+11813 # key 'x' is pressed at this moment terminating the printing
+
+</code></pre></div></div><h2 id="part--c----networking"> <a href="#part--c----networking" class="anchor-heading" aria-labelledby="part--c----networking"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Part C : Networking</h2><h3 id="specification--17---iman-4"> <a href="#specification--17---iman-4" class="anchor-heading" aria-labelledby="specification--17---iman-4"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Specification 17 : iMan [4]</h3><p>iMan
+ fetches man pages from the internet using sockets and outputs it to the
+ terminal (stdout). In this case, you are required to use the website : 
+http://man.he.net/ to get the man pages.</p><p>You do not need to handle “man page not found” error separately and you can print the html tags as well if there are any.</p><p>Do not print the header received during the GET request. (Check example given below for exact output).</p><p><strong>iMan &lt;command_name&gt;</strong></p><p>&lt;command_name&gt; is the name of the man page that you want to fetch.</p><p>This
+ should fetch the man page for the given command from 
+http://man.he.net/, if the page does not exist, you can continue to 
+print the response from the page.</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+&lt;JohnDoe@SYS:~&gt; iMan sleep
+
+# expected output here :
+sleep
+
+
+
+
+sleep
+
+SLEEP(1)                         User Commands                        SLEEP(1)
+
+NAME
+       sleep - delay for a specified amount of time
+
+SYNOPSIS
+       sleep NUMBER[SUFFIX]...
+       sleep OPTION
+
+DESCRIPTION
+       Pause for NUMBER seconds.  SUFFIX may be 's' for seconds (the default),
+       'm' for minutes, 'h' for hours or 'd' for days.  Unlike most  implemen-
+       tations  that require NUMBER be an integer, here NUMBER may be an arbi-
+       trary floating point number.  Given two or more  arguments,  pause  for
+       the amount of time specified by the sum of their values.
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+AUTHOR
+       Written by Jim Meyering and Paul Eggert.
+
+REPORTING BUGS
+       GNU coreutils online help: &amp;lt;https://www.gnu.org/software/coreutils/&amp;gt;
+       Report sleep translation bugs to &amp;lt;https://translationproject.org/team/&amp;gt;
+
+COPYRIGHT
+       Copyright  (C) 2018 Free Software Foundation, Inc.  License GPLv3+: GNU
+       GPL version 3 or later &amp;lt;https://gnu.org/licenses/gpl.html&amp;gt;.
+       This is free software: you are free  to  change  and  redistribute  it.
+       There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+       sleep(3)
+
+       Full documentation at: &amp;lt;https://www.gnu.org/software/coreutils/sleep&amp;gt;
+       or available locally via: info '(coreutils) sleep invocation'
+
+GNU coreutils 8.30              September 2019                        SLEEP(1)
+
+Man Pages Copyright Respective Owners.  Site Copyright (C) 1994 - 2024
+Hurricane Electric.
+All Rights Reserved.
+
+
+o or more  arguments,  pause  for
+       the amount of time specified by the sum of their values.
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+AUTHOR
+       Written by Jim Meyering and Paul Eggert.
+
+REPORTING BUGS
+       GNU coreutils online help: &amp;lt;ht
+
+// expected output ends
+
+&lt;JohnDoe@SYS:~&gt; iMan invalid_command
+
+
+# expected output here : 
+
+
+invalid_command
+
+
+
+
+invalid_command
+No matches for "invalid_command"
+Search Again
+
+Man Pages Copyright Respective Owners.  Site Copyright (C) 1994 - 2024
+Hurricane Electric.
+All Rights Reserved.
+
+
+ERROR: No matches for "invalid_command" command
+
+// expected output ends
+
+
+</code></pre></div></div><p>If there are more than 1 argument, iMan considers only the first argument and ignores the rest. For example :</p><div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="dl">"</span><span class="s2">iMan sleep</span><span class="dl">"</span> <span class="nx">is</span> <span class="nx">the</span> <span class="nx">same</span> <span class="k">as</span> <span class="dl">"</span><span class="s2">iMan sleep extra</span><span class="dl">"</span>
+
+</code></pre></div></div><h1 id="guidelines"> <a href="#guidelines" class="anchor-heading" aria-labelledby="guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Guidelines</h1><ol><li><p>The submission must be done in C. No other languages are allowed.</p></li><li><p>All
+ C standard library functions are allowed unless explicitly mentioned. 
+You can find the list of header files in C standard library here : 
+https://en.cppreference.com/w/c/header</p></li><li><p>Third party libraries are not allowed.</p></li><li><p>If there is an error while running a command, it <strong>should not cause the shell to crash</strong>. Handle errors as they are mentioned in the Mini Project document. If an <strong>error is not mentioned here, you should still handle it appropriately</strong>. Look at perror.h for handling error routines.</p></li><li><p>Do error handling for both user defined and system commands.</p></li><li><p>Use specific color coding for error messages and prompts (You can choose the colors)</p></li><li><p>As
+ mentioned in Input Requirements, there can be multiple random tabs and 
+spaces, you should handle these (and still run the entered command).</p></li><li><p>The
+ user can execute other files from within the shell (including the 
+shell). Your program must be able to execute them or print error if it 
+is unable to do so.</p></li><li><p>Use of popen, pclose and system() calls is not permitted.</p></li><li><p>Use the exec family of command to execute the system commands. Errors should be handled appropriately.</p></li><li><p>You
+ are not required to implement background functionality for user 
+commands (commands implemented by you) in this shell (hop, reveal, seek,
+ proclore etc.)</p></li><li><p>However, piping and redirection must work with both user and system commands.</p></li><li><p>Use signal handlers to handle signals when switching between foreground and background or when a background process exits.</p></li><li><p>Your
+ code MUST compile for any marks to be given. Use version control to 
+save working versions of code before messing around with it and write 
+modular code.</p></li><li><p>Segmentation faults and other crashes while your shell is running will be penalized.</p></li><li><p>The
+ symbols &lt;, &gt;, &nbsp;», &amp;, |, ; , - would always correspond to
+ their special meaning and would not appear otherwise, such as in inputs
+ to echo etc.</p></li><li><p>You are expected to implement everything except Specification 6 without using execvp.</p></li></ol><h1 id="useful-commandsstructsfiles"> <a href="#useful-commandsstructsfiles" class="anchor-heading" aria-labelledby="useful-commandsstructsfiles"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Useful commands/structs/files:</h1><p>uname,
+ hostname, signal, waitpid, getpid, kill, execvp, strtok, fork, getopt, 
+readdir, opendir, readdir, closedir, getcwd, sleep, struct stat, struct 
+dirent, /proc/interrupts, fopen, chdir, getopt, pwd.h (to obtain 
+username), /proc/loadavg.</p><p>Also check out termios.h functions like tcgetattr(), tcsetattr() for terminal setting (raw mode/ cooked mode).</p><p>Refer
+ to man pages on internet to learn of all possible invocations/variants 
+of these general commands. Pay specific attention to the various data 
+types used within these commands and explore the various header files 
+needed to use these commands.</p><h1 id="plagiarism--policy"> <a href="#plagiarism--policy" class="anchor-heading" aria-labelledby="plagiarism--policy"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Plagiarism Policy</h1><p><strong>Do NOT take code from your seniors or batchmates as we will do extensively evaluation for any plagiarism.</strong> Moss will be run against the previous few year’s submissions as well, and any case of <strong>plagiarism will be punished heavily according to the course policy.</strong></p><p>There
+ will be a viva conducted during manual evaluations, related to your 
+code and the logic/concept involved in it. You will get a penalty of up 
+to 100% if you are unable to answer these questions regarding the 
+working of your code and the concept behind it.</p><p>Takeaway : Do not copy, it won’t get you marks but there is a high chance for it to get you trouble.</p><h1 id="submission--guidelines"> <a href="#submission--guidelines" class="anchor-heading" aria-labelledby="submission--guidelines"><svg viewBox="0 0 16 16" aria-hidden="true"><use xlink:href="#svg-link"></use></svg></a> Submission Guidelines</h1><ol><li><p>Make a <strong>makefile</strong> for compiling all your code (with appropriate flags and linker options). This makefile is expected to generate an <strong>executable “a.out” on running the “make”</strong> command. Executing a.out should start your shell.</p></li><li><p>Include a <a href="http://readme.md/">README.md</a>
+ describing which file corresponds to what part and any assumptions that
+ you made. Any assumptions not written in README.md may not be 
+considered during manual evaluation.</p></li><li><p>Submit modular code only.</p></li><li><p>Following is the expected directory structure for your submission :</p></li></ol><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+  
+
+├── README.md
+
+├── makefile
+
+└── Other files and directories
+
+</code></pre></div></div><hr><footer><p class="text-small text-grey-dk-100 mb-0">Copyright © 2024 Karthik Vaidhyanathan. Distributed by an <a href="https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt">MIT license.</a></p></footer></div></div><div class="search-overlay"></div></div>
+</body></html>

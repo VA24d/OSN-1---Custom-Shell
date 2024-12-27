@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "base.h": "c",
+        "log.h": "c",
+        "proclore.h": "c",
+        "shrc.h": "c",
+        "stdio.h": "c",
+        "activities.h": "c",
+        "process.h": "c",
+        "signals.h": "c"
+    }
+}
